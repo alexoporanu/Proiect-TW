@@ -1,0 +1,257 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: calc(100vh - 44px);
+    width: 100%;
+    background-color: rgb(247, 243, 230);
+    font-family: 'Lora', serif;
+    color: rgb(77, 58, 30);
+    
+}
+nav {
+    width: 100%;
+    height: 65px;
+    top: 0;
+    color: dark;
+    padding: 0 42px;
+    border-bottom: 1px solid transparent;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(167, 131, 131);
+    background-image: url("raft2.jpg");
+}
+.nav-title {
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+    cursor: context-menu;
+    text-align: center;
+    justify-content: center;
+}
+.nav-wrapper {
+    display: flex;
+    min-width: 1400px;
+    justify-content: space-between;
+}
+.nav-settings, .nav-add {
+    height: 28px;
+    display: flex;
+    background: hsla(0,0%,100%,0.0);
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: rgb(243, 224, 201);
+    margin-right: 50px;
+}
+
+.nav-add{
+    display: none;
+}
+
+textarea {
+    width: 113px;
+    height: 170px;
+    resize: none;
+}
+
+.body-layout {
+    height: calc(calc(100vh - 44px) - 44px);
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: 1.4fr 2.6fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "add-list main-list"
+}
+
+footer {
+    bottom:0;
+    color: white;
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("raft2.jpg");
+
+}
+
+
+.main-list {
+    grid-area: main-list;
+    padding: 30px 55px 34px;
+}
+.greeting-container {
+    display: flex;
+    align-self: center;
+}
+.book-elem {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+.book-elem:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+.book-cap {
+    width: 100%;
+    font-size: 20px;
+    line-height: 21px;
+    padding: 10px 0;
+}
+
+
+.add-list {
+    grid-area: add-list;
+    background-color: #e7ddd2;
+    padding-left: 35px;
+    padding-top: 30px;
+    right: 0;
+}
+.add-form {
+    width: 100%;
+}
+#b-title, #modal-b-title, #edit-b-title, #user-name {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    width: 60%;
+    padding: 8px;
+}
+#user-name {
+    width: calc(100% - 20px);
+}
+#b-descript, #modal-b-descript, #edit-b-descript {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    width: 80%;
+    padding: 8px;
+}
+
+#edit-b-title, #edit-b-descript {
+    width: calc(100% - 20px);
+}
+button:disabled {
+    opacity: .3;
+    cursor: context-menu;
+}
+.btn {
+    cursor: pointer ;
+    color: white;
+    background-color: #917044;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 6px 13px 7px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    height: 30px;
+}
+
+.modal-box {        /* avem display: none, ca sa nu se afiseze initial
+                          */
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.1);
+}
+.modal-settings, .modal-view, .modal-add {
+    z-index: 20;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.08);
+    padding: 10px 20px 20px;
+    margin: 15% auto;
+    height: auto;
+    width: 35%;
+    border-radius: 3px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 23px;
+}
+.view-modal-descript {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 4px 0;
+}
+.modal-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ico {
+    font-size: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+    .body-layout {
+        grid-template-columns: 0 100%;
+    }
+    .add-list {
+        display: none;
+    }
+    .nav-add {
+        display: flex;
+        flex-direction: row;
+    }
+    .nav-wrapper{
+    display: flex;
+    min-width: 750px;
+    justify-content: space-between;
+
+    }
+    .modal-settings, .modal-view, .modal-add {
+        width: 80%;
+    }
+    #book-list {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .body-layout {
+        grid-template-columns: 0 100%;
+    }
+    .add-list {
+        display: none;
+    }
+    .nav-add {
+        display: flex;
+        flex-direction: row;
+    }
+    .nav-wrapper{
+    display: flex;
+    min-width: 450px;
+    justify-content: space-between;
+    }
+
+    .ico{
+        font-size: 30px;
+    }
+    .modal-settings, .modal-view, .modal-add {
+        width: 80%;
+    }
+    #book-list {
+        padding: 0px;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oporanu Alexandru Stefan">
+    <meta name="description" content="Recenzii cărți">
+
+    <title>Book</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8f2dcd945c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- aici facem meniul pentru autentificare care are modal-box ca si
+     clasa si id modalSettings -->
+    <div id="modalSettings" class="modal-box"> <!-- asta e conainterul (divul mare) -->
+        <div class="modal-settings">
+            <h1 class="modal-title">Autentificare</h1>  <!--titlul-->
+            <p>
+                Introduceți numele: 
+                <input id="user-name" type="textbox"> <!-- casuta unde introduci numele -->
+            </p>
+            <div class="modal-menu">
+                <button type="submit" class="btn" onclick="saveSettings()">Salvează</button> <!--buton1 -->
+                <button type="submit" class="btn" onclick="closeModal()">Închide</button> <!--buton2 -->
+            </div>
+        </div>
+    </div>
+
+    <div id="modalView" class="modal-box">
+        <div id="modalView-info" class="modal-view">
+        </div>  <!-- meniul pe care apesi sa vezi detalii despre o carte adaugata-->
+    </div>
+
+    <div id="modalAdd" class="modal-box">
+        <div class="modal-add">
+            <h1 class="modal-title">Adaugă o carte</h1>
+            <form class="add-form">
+                <label for="book-title">Titlul și autorul cărții:</label><br>
+                <input name="b-title" id="modal-b-title" type="text" placeholder=""><br>
+                <label for="book-description">Recenzia cărții:</label><br>
+                <textarea name="b-descript" id="modal-b-descript" placeholder=""></textarea><br>
+                <div class="modal-menu">
+                    <!--pe butonul de adaugă din meniul de user se apelează postMBook-->
+                    <button type="submit" id="postMBtn" class="btn" onclick="postMBook()" disabled>Adaugă</button>
+                    <button class="btn" onclick="closeModal()">Închide</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <nav> <!-- aici am user-ul si plusul (iconitele) -->
+        <div class="nav-wrapper">
+            <button onclick="openSettings()" class="nav-settings"><i class="fas fa-user ico"></i></button>
+            <button onclick="openModalAdd()" class="nav-add"><i class="fas fa-book-open ico"></i></button>
+        </div>
+    </nav>
+    
+    <div class="body-layout">
+        <main class="main-list">
+            <header class="greeting-container">
+                <h2 id="greeting">Salut! Aici sunt recenziile tale:</h2>
+            </header>
+
+            <ul id="book-list">
+                <!--asta e lista de carti unde appenduiesc cartile-->
+            </ul>
+        </main>
+
+        <aside class="add-list">
+            <form class="add-form">
+                <h1>Adaugă o carte</h1>
+                <label for="book-title">Titlu și autor:</label><br>
+                <input name="b-title" id="b-title" type="text" placeholder="Introdu titlul si autorul cărții"><br>
+                <label for="book-description">Scrie o recenzie:</label><br>
+                <textarea name="book-descript" id="b-descript" placeholder="Introdu recenzia ta"></textarea><br>
+                
+                <button type="submit" id="postBtn" class="btn" onclick="postBook()" disabled>Adaugă</button>
+            </form>
+        </aside>
+    </div>
+
+    <footer>
+        
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
